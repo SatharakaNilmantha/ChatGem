@@ -1,0 +1,95 @@
+.sidebar {
+  height: 100vh;
+  background-color: #ececec;
+  color: #000000;
+  display: flex;
+  flex-direction: column;
+  padding: 12px;
+  font-family: 'Segoe UI', sans-serif;
+  transition: width 0.3s ease;
+  overflow: hidden;
+}
+
+/* Expanded sidebar */
+.sidebar.expanded {
+  width: 200px;
+}
+
+/* Collapsed sidebar */
+.sidebar.collapsed {
+  width: 70px;
+}
+
+/* Top section */
+.top {
+  display: flex;
+  flex-direction: column;
+}
+
+.top .menu {
+  font-size: 1.8rem;
+  cursor: pointer;
+  padding: 10px;
+}
+
+/* New Chat Button */
+.new-chat {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background-color: #ffffff;
+  padding: 12px;
+  justify-content: center;
+  border-radius: 50px;
+  margin: 16px 0;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.new-chat:hover {
+  background-color: #f0f0f0;
+}
+
+/* Middle section */
+.middle {
+  flex: 1;
+  overflow-y: auto;
+}
+
+.recent-title {
+  font-size: 0.9rem;
+  color: #8e8ea0;
+  margin-bottom: 10px;
+}
+
+.recent-entry {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.recent-entry:hover {
+  background-color: #f8f8f8;
+}
+
+/* Bottom section */
+.bottom {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding-top: 10px;
+  border-top: 1px solid #3e3f4b;
+}
+
+.bottom-item p,
+.recent-entry p,
+.recent-title,
+.new-chat p {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
