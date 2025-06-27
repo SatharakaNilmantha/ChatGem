@@ -19,3 +19,107 @@
     height: auto;
     border-radius: 50px;
 }
+
+.main-container{
+    max-width: 900px;
+    margin: auto;
+}
+
+.main .greet{
+    margin: 40px 0px;
+    font-size: 56px;
+    color: rgb(218, 217, 217);
+    font-weight: 500 ;
+    padding: 20px;
+
+}
+
+.main .greet span{
+    background: -webkit-linear-gradient(16deg , #4b90ff,#ff5546);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.main .cards{
+    display: grid;
+    grid-template-columns: repeat(auto-fill,minmax(180px,1fr));
+    gap: 15px;
+    padding: 20px;
+}
+
+.main .card{
+    height: 200px;
+    padding: 15px;
+    background-color: rgb(238, 238, 238);
+    border-radius: 10px;
+    position: relative;
+    cursor: pointer;
+}
+
+.main .card p{
+  color: #585858;
+  font-size: 17px;
+}
+
+.main .card-icon {
+   font-size: 25px;
+   margin-bottom: 15px;
+   position: relative;
+   top: 70px;
+   right: -130px;
+   width: 38px;
+   background-color: white;
+   text-align: center;
+   padding-top: 8px;
+   border-radius: 50px;
+}
+
+.main .card:hover{
+  background-color: #e6e6e6;
+}
+
+
+.main-bottom{
+    position: absolute;
+    width: 100%;
+    max-width: 900px;
+    padding: 0px 20px;
+    bottom: 0px;
+}
+
+.search-box{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    background-color: #f0f4f9;
+    padding: 10px 20px;
+    border-radius: 50px;
+}
+
+.search-box span{
+    padding: 8px;
+    font-size: 18px;
+}
+
+.search-box input{
+    flex: 1;
+    background: transparent;
+    border: none;
+    outline: none;
+    padding: 8px;
+    font-size: 18px;
+}
+
+.search-box div{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.main .bottom-info{
+    font-size: 13px;
+    margin: 15px auto;
+    text-align: center;
+    font-weight: 300;
+}
