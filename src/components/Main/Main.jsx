@@ -1,75 +1,190 @@
-import React from 'react'
-
-import './Main.css'
-
-import user from "../../Images/images.jpg"
+import React, { useState, useRef, useEffect } from 'react';
+import './Main.css';
+import user from "../../Images/images.jpg";
 import { IoBulbOutline } from "react-icons/io5";
 import { GiCompass } from "react-icons/gi";
-import { FaRegMessage } from "react-icons/fa6";
-import { FaCode } from "react-icons/fa6";
-
+import { FaRegMessage, FaCode } from "react-icons/fa6";
 import { HiOutlineMicrophone } from "react-icons/hi2";
 import { BiImageAdd } from "react-icons/bi";
 import { LuSend } from "react-icons/lu";
+import { RiGeminiFill } from "react-icons/ri";
+import { GEMINI_API_KEY, GEMINI_API_URL } from '../config/gemini.js';
+import ReactMarkdown from 'react-markdown';
 
-function Main() {
+function Main({ messages: propMessages = [], onMessagesUpdate }) {
+  const [input, setInput] = useState('');
+  const [messages, setMessages] = useState(propMessages);
+  const [loading, setLoading] = useState(false);
+  const messagesEndRef = useRef(null);
+
+  // Update local messages when propMessages changes
+  useEffect(() => {
+    setMessages(propMessages);
+  }, [propMessages]);
+
+  const scrollToBottom = () => {
+    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+  };
+
+  useEffect(() => {
+    scrollToBottom();
+  }, [messages]);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (!input.trim()) return;
+
+    const userMessage = {
+      text: input.replace(/\n/g, "<br/>"),
+      sender: 'user',
+      timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
+    };
+
+    const newMessages = [...messages, userMessage];
+    setMessages(newMessages);
+    setInput('');
+    setLoading(true);
+
+    try {
+      const response = await fetch(`${GEMINI_API_URL}?key=${GEMINI_API_KEY}`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          contents: [{ parts: [{ text: input }] }]
+        })
+      });
+
+      const data = await response.json();
+      const aiText = data.candidates[0].content.parts[0].text;
+
+      const updatedMessages = [...newMessages, {
+        text: aiText,
+        sender: 'ai',
+        timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
+      }];
+      
+      setMessages(updatedMessages);
+      if (onMessagesUpdate) onMessagesUpdate(updatedMessages);
+    } catch (error) {
+      console.error('Error:', error);
+      const errorMessages = [...newMessages, {
+        text: "Sorry, I encountered an error.",
+        sender: 'ai',
+        timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
+      }];
+      setMessages(errorMessages);
+      if (onMessagesUpdate) onMessagesUpdate(errorMessages);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handleQuickPrompt = async (prompt) => {
+    setInput(prompt);
+    const event = { preventDefault: () => {} };
+    await handleSubmit(event);
+  };
+
   return (
-    <>
-      <div className='main'>
-         <div className='nav'>
-            <p>Gemini</p>
-            <img src={user} alt="" />
-         </div>
-
-         <div className='main-container'>
-
-          <div className='greet'>
-             <p><span>Hello , Dev.</span></p>
-             <p>How can I help you Today ?</p>
-          </div>
-
-          <div className='cards'>
-            <div className='card'>
-              <p>suggest beautiful place to see on an upcomming road trip </p>
-              <div className='card-icon'><GiCompass /></div>
-            </div>
-
-            <div className='card'>
-              <p>Briefly summarizethis concept :urban planning </p>
-              <div className='card-icon'><IoBulbOutline /></div>
-            </div>
-
-            <div className='card'>
-              <p> Brainstrom team bounding activities for our work retreat </p>
-              <div className='card-icon'><FaRegMessage /></div>
-            </div>
-
-            
-            <div className='card'>
-              <p>Imporve the readability of the following code</p> 
-              <div className='card-icon'><FaCode /></div>
-            </div>
-
-          </div>
-          
-          <div className='main-bottom'>
-             <div className='search-box'>
-                <input type="text" placeholder='Enter a prompt here'/>
-                <div>
-                   <span><BiImageAdd /></span>
-                   <span><HiOutlineMicrophone /></span>
-                   <span><LuSend /></span>
-                </div>
-             </div>
-             <p className='bottom-info'>Gemini may display inaccurateinfo, including about people ,so double check it's responses.Your privacy and Gemini Apps</p>
-          </div>
-
-
-
-         </div>
+    <div className='main'>
+      <div className='nav'>
+        <p>Gemini</p>
+        <img src={user} alt="User Avatar" />
       </div>
-    </>
-  )
+
+      <div className='main-container'>
+        {messages.length === 0 ? (
+          <>
+            <div className='greet'>
+              <p><span>Hello, Dev.</span></p>
+              <p>How can I help you today?</p>
+            </div>
+
+            <div className='cards'>
+              <div className='card' onClick={() => handleQuickPrompt("Suggest beautiful places to see on an upcoming road trip")}>
+                <p>Suggest beautiful places to see on an upcoming road trip</p>
+                <div className='card-icon'><GiCompass /></div>
+              </div>
+
+              <div className='card' onClick={() => handleQuickPrompt("Briefly summarize this concept: urban planning")}>
+                <p>Briefly summarize this concept: urban planning</p>
+                <div className='card-icon'><IoBulbOutline /></div>
+              </div>
+
+              <div className='card' onClick={() => handleQuickPrompt("Brainstorm team bonding activities for our work retreat")}>
+                <p>Brainstorm team bonding activities for our work retreat</p>
+                <div className='card-icon'><FaRegMessage /></div>
+              </div>
+
+              <div className='card' onClick={() => handleQuickPrompt("Improve the readability of the following code")}>
+                <p>Improve the readability of the following code</p>
+                <div className='card-icon'><FaCode /></div>
+              </div>
+            </div>
+          </>
+        ) : (
+          <div className='chat-container'>
+            <div className='chat-messages'>
+              {messages.map((message, index) => (
+                <div key={index} className={`chat-bubble ${message.sender}`}>
+                  <div className="avatar">
+                    {message.sender === 'user'
+                      ? <img src={user} alt="User" />
+                      : <span className="ai-icon"><RiGeminiFill /></span>
+                    }
+                  </div>
+                  <div className="bubble-content">
+                    {message.sender === 'ai' ? (
+                      <div className="message-text markdown">
+                        <ReactMarkdown>{message.text}</ReactMarkdown>
+                      </div>
+                    ) : (
+                      <p 
+                        className="message-text" 
+                        dangerouslySetInnerHTML={{ __html: message.text }} 
+                      />
+                    )}
+                  </div>
+                  {message.timestamp && (
+                    <span className="message-timestamp">{message.timestamp}</span>
+                  )}
+                </div>
+              ))}
+
+              {loading && (
+                <div className='chat-bubble ai'>
+                  <div className="avatar"><span className="ai-icon"><RiGeminiFill /></span></div>
+                  <div className="bubble-content typing-indicator">
+                    <span></span><span></span><span></span>
+                  </div>
+                </div>
+              )}
+              <div ref={messagesEndRef} />
+            </div>
+          </div>
+        )}
+
+        <div className='main-bottom'>
+          <form onSubmit={handleSubmit} className='search-box'>
+            <input 
+              type="text" 
+              placeholder='Enter a prompt here' 
+              value={input}
+              onChange={(e) => setInput(e.target.value)}
+            />
+            <div>
+              <span><BiImageAdd /></span>
+              <span><HiOutlineMicrophone /></span>
+              <button type="submit"><LuSend /></button>
+            </div>
+          </form>
+          <p className='bottom-info'>
+            Gemini may display inaccurate info, including about people. Double-check its responses.
+          </p>
+        </div>
+      </div>
+    </div>
+  );
 }
 
-export default Main
+export default Main;
