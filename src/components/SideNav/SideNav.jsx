@@ -7,7 +7,7 @@ import { MdHistory } from "react-icons/md";
 
 import "./SideNav.css";
 
-function SideNav() {
+function SideNav({ recentChats, onNewChat, onSelectChat }) {
   const [extended, setExtended] = useState(true);
 
   return (
@@ -17,36 +17,38 @@ function SideNav() {
           <IoMenu />
         </p>
 
-        <div className='new-chat'>
+        <div className='new-chat' onClick={onNewChat}>
           <GoPlus />
-          {extended && <p>New Chat</p>}
+          {extended ?<p>New Chat</p> :null}
         </div>
       </div>
 
       <div className='middle'>
-        {extended && (
+        {extended ? (
           <div className='recent'>
             <p className='recent-title'>Recent</p>
-            <div className='recent-entry'>
-              <FaRegMessage />
-              <p>What is React...</p>
-            </div>
+            {recentChats.map((chat, index) => (
+              <div  key={index}  className='recent-entry' onClick={() => onSelectChat(index)} >
+                <FaRegMessage style={{ fontSize: "20px" }} />
+                <p>{chat.title}</p>
+              </div>
+            ))}
           </div>
-        )}
+        ) :null}
       </div>
 
       <div className='bottom'>
         <div className='bottom-item recent-entry'>
           <IoIosHelpCircleOutline style={{ fontSize: "20px" }} />
-          {extended && <p>Help</p>}
+          {extended ?<p>Help</p>:null}
         </div>
         <div className='bottom-item recent-entry'>
           <MdHistory style={{ fontSize: "20px" }} />
-          {extended && <p>Activity</p>}
+          {extended ? <p>Activity</p>:null}
         </div>
         <div className='bottom-item recent-entry'>
           <IoIosSettings style={{ fontSize: "20px" }} />
-          {extended && <p>Settings</p>}
+          {extended ?<p>Settings</p>:null}
         </div>
       </div>
     </div>
