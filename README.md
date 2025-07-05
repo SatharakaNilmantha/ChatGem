@@ -32,7 +32,7 @@ cp .env.example .env
 Open the `.env` file and replace `your_gemini_api_key_here` with your actual API key:
 
 ```env
-VITE_GEMINI_API_KEY=AIzaSyBtQ0pa0QyRAqwBbaS7ZLVhXxLcjyrJJNI
+VITE_GEMINI_API_KEY=Your_API_KEY
 VITE_GEMINI_API_URL=https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent
 ```
 
