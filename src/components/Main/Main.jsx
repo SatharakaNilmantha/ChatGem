@@ -34,6 +34,12 @@ function Main({ messages: propMessages = [], onMessagesUpdate }) {
     e.preventDefault();
     if (!input.trim()) return;
 
+    // Check if API key is available
+    if (!GEMINI_API_KEY) {
+      alert('❌ API key not found! Please check your .env file and restart the server.');
+      return;
+    }
+
     const userMessage = {
       text: input.replace(/\n/g, "<br/>"),
       sender: 'user',
@@ -54,6 +60,10 @@ function Main({ messages: propMessages = [], onMessagesUpdate }) {
         })
       });
 
+      if (!response.ok) {
+        throw new Error(`API Error: ${response.status} ${response.statusText}`);
+      }
+
       const data = await response.json();
       const aiText = data.candidates[0].content.parts[0].text;
 
@@ -67,8 +77,18 @@ function Main({ messages: propMessages = [], onMessagesUpdate }) {
       if (onMessagesUpdate) onMessagesUpdate(updatedMessages);
     } catch (error) {
       console.error('Error:', error);
+      let errorMessage = "Sorry, I encountered an error.";
+      
+      if (error.message.includes('API Error: 400')) {
+        errorMessage = "Invalid API request. Please check your API key.";
+      } else if (error.message.includes('API Error: 403')) {
+        errorMessage = "API key is invalid or doesn't have permission.";
+      } else if (error.message.includes('API Error: 429')) {
+        errorMessage = "Too many requests. Please try again later.";
+      }
+      
       const errorMessages = [...newMessages, {
-        text: "Sorry, I encountered an error.",
+        text: errorMessage,
         sender: 'ai',
         timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
       }];
