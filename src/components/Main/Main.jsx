@@ -36,7 +36,7 @@ function Main({ messages: propMessages = [], onMessagesUpdate }) {
 
     // Check if API key is available
     if (!GEMINI_API_KEY) {
-      alert('❌ API key not found! Please check your .env file and restart the server.');
+      alert('❌ API key not found!\n\nTo fix this:\n1. Copy .env.example to .env\n2. Add your Gemini API key\n3. Restart the server\n\nGet your API key from: https://makersuite.google.com/app/apikey');
       return;
     }
 
@@ -80,9 +80,9 @@ function Main({ messages: propMessages = [], onMessagesUpdate }) {
       let errorMessage = "Sorry, I encountered an error.";
       
       if (error.message.includes('API Error: 400')) {
-        errorMessage = "Invalid API request. Please check your API key.";
+        errorMessage = "Invalid API request. Please check your API key in the .env file.";
       } else if (error.message.includes('API Error: 403')) {
-        errorMessage = "API key is invalid or doesn't have permission.";
+        errorMessage = "API key is invalid or doesn't have permission. Please check your .env file.";
       } else if (error.message.includes('API Error: 429')) {
         errorMessage = "Too many requests. Please try again later.";
       }
@@ -104,6 +104,42 @@ function Main({ messages: propMessages = [], onMessagesUpdate }) {
     const event = { preventDefault: () => {} };
     await handleSubmit(event);
   };
+
+  // Show setup message if API key is missing
+  if (!GEMINI_API_KEY) {
+    return (
+      <div className='main'>
+        <div className='nav'>
+          <p>Gemini</p>
+          <img src={user} alt="User Avatar" />
+        </div>
+        <div className='main-container'>
+          <div className='greet'>
+            <p><span>Setup Required</span></p>
+            <p>Please configure your API key to get started</p>
+          </div>
+          <div style={{ 
+            padding: '20px', 
+            backgroundColor: '#f0f4f9', 
+            borderRadius: '10px', 
+            margin: '20px',
+            lineHeight: '1.6'
+          }}>
+            <h3 style={{ marginBottom: '15px', color: '#333' }}>🔧 Setup Instructions:</h3>
+            <ol style={{ paddingLeft: '20px', color: '#555' }}>
+              <li style={{ marginBottom: '8px' }}>Copy <code>.env.example</code> to <code>.env</code></li>
+              <li style={{ marginBottom: '8px' }}>Get your API key from <a href="https://makersuite.google.com/app/apikey" target="_blank" rel="noopener noreferrer" style={{ color: '#4b90ff' }}>Google AI Studio</a></li>
+              <li style={{ marginBottom: '8px' }}>Add your API key to the <code>.env</code> file</li>
+              <li style={{ marginBottom: '8px' }}>Restart the development server</li>
+            </ol>
+            <p style={{ marginTop: '15px', fontSize: '14px', color: '#666' }}>
+              💡 Check the console for detailed error messages
+            </p>
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className='main'>
