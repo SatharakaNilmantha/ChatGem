@@ -276,20 +276,16 @@
   border: 2px solid #dbeafe;
 }
 
-.chat-bubble .ai-icon {
-  font-size: 20px;
-  color: #ffffff;
-  background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
-  padding: 10px;
-  border-radius: 50%;
-  margin-right: 12px;
-  flex-shrink: 0;
-  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
-  width: 40px;
-  height: 40px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+/* AI Avatar Styling */
+.ai-avatar {
+  width: 40px !important;
+  height: 40px !important;
+  object-fit: contain !important;
+  border-radius: 50% !important;
+  background: linear-gradient(135deg, #f0f7ff 0%, #ffffff 100%) !important;
+  border: 2px solid rgba(59, 130, 246, 0.2) !important;
+  padding: 4px !important;
+  box-shadow: 0 2px 8px rgba(59, 130, 246, 0.15) !important;
 }
 
 .bubble-content {

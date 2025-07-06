@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import './Main.css';
 import user from "../../Images/images.jpg";
+import aiIcon from "../../Images/Human Tech (1).png";
 import { IoBulbOutline } from "react-icons/io5";
 import { GiCompass } from "react-icons/gi";
 import { FaRegMessage, FaCode } from "react-icons/fa6";
@@ -110,7 +111,10 @@ function Main({ messages: propMessages = [], onMessagesUpdate }) {
     return (
       <div className='main'>
         <div className='nav'>
-          <p>ChatGem</p>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+            <img src={aiIcon} alt="ChatGem AI" style={{ width: '40px', height: '40px', objectFit: 'contain' }} />
+            <p>ChatGem</p>
+          </div>
           <img src={user} alt="User Avatar" />
         </div>
         <div className='main-container'>
@@ -146,7 +150,10 @@ function Main({ messages: propMessages = [], onMessagesUpdate }) {
   return (
     <div className='main'>
       <div className='nav'>
-        <p>ChatGem</p>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+          <img src={aiIcon} alt="ChatGem AI" style={{ width: '40px', height: '40px', objectFit: 'contain' }} />
+          <p>ChatGem</p>
+        </div>
         <img src={user} alt="User Avatar" />
       </div>
 
@@ -188,7 +195,7 @@ function Main({ messages: propMessages = [], onMessagesUpdate }) {
                   <div className="avatar">
                     {message.sender === 'user'
                       ? <img src={user} alt="User" />
-                      : <span className="ai-icon"><HiSparkles /></span>
+                      : <img src={aiIcon} alt="ChatGem AI" className="ai-avatar" />
                     }
                   </div>
                   <div className="bubble-content">
@@ -211,7 +218,9 @@ function Main({ messages: propMessages = [], onMessagesUpdate }) {
 
               {loading && (
                 <div className='chat-bubble ai'>
-                  <div className="avatar"><span className="ai-icon"><HiSparkles /></span></div>
+                  <div className="avatar">
+                    <img src={aiIcon} alt="ChatGem AI" className="ai-avatar" />
+                  </div>
                   <div className="bubble-content typing-indicator">
                     <span></span><span></span><span></span>
                   </div>
