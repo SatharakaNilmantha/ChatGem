@@ -1,15 +1,13 @@
 .sidebar {
   height: 100vh;
-  background: linear-gradient(180deg, #0f0f23 0%, #1a1a2e 50%, #16213e 100%);
-  color: #00ff41;
+  background-color: #ececec;
+  color: #000000;
   display: flex;
   flex-direction: column;
   padding: 12px;
-  font-family: 'Courier New', 'Roboto Mono', monospace;
+  font-family: 'Segoe UI', sans-serif;
   transition: width 0.3s ease;
   overflow: hidden;
-  border-right: 1px solid #00ff41;
-  box-shadow: 2px 0 10px rgba(0, 255, 65, 0.1);
 }
 
 /* Expanded sidebar */
@@ -32,13 +30,6 @@
   font-size: 1.8rem;
   cursor: pointer;
   padding: 10px;
-  color: #00ff41;
-  transition: color 0.3s ease;
-}
-
-.top .menu:hover {
-  color: #00d4ff;
-  text-shadow: 0 0 10px rgba(0, 212, 255, 0.5);
 }
 
 /* New Chat Button */
@@ -46,22 +37,17 @@
   display: flex;
   align-items: center;
   gap: 10px;
-  background: linear-gradient(135deg, #00ff41, #00d4ff);
-  color: #0a0a0a;
+  background-color: #ffffff;
   padding: 12px;
   justify-content: center;
   border-radius: 50px;
   margin: 16px 0;
   cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: 0 0 15px rgba(0, 255, 65, 0.3);
-  font-weight: bold;
+  transition: background-color 0.3s ease;
 }
 
 .new-chat:hover {
-  background: linear-gradient(135deg, #00d4ff, #00ff41);
-  box-shadow: 0 0 25px rgba(0, 255, 65, 0.5);
-  transform: translateY(-1px);
+  background-color: #f0f0f0;
 }
 
 /* Middle section */
@@ -72,11 +58,8 @@
 
 .recent-title {
   font-size: 0.9rem;
-  color: #666666;
+  color: #8e8ea0;
   margin-bottom: 10px;
-  font-family: 'Courier New', monospace;
-  text-transform: uppercase;
-  letter-spacing: 1px;
 }
 
 .recent-entry {
@@ -86,15 +69,11 @@
   padding: 10px;
   border-radius: 50px;
   cursor: pointer;
-  transition: all 0.2s ease;
-  color: #00ff41;
-  border: 1px solid transparent;
+  transition: background-color 0.2s ease;
 }
 
 .recent-entry:hover {
-  background: linear-gradient(135deg, rgba(0, 255, 65, 0.1), rgba(0, 212, 255, 0.1));
-  border-color: rgba(0, 255, 65, 0.3);
-  box-shadow: 0 0 10px rgba(0, 255, 65, 0.2);
+  background-color: #f8f8f8;
 }
 
 /* Bottom section */
@@ -103,7 +82,7 @@
   flex-direction: column;
   gap: 6px;
   padding-top: 10px;
-  border-top: 1px solid #00ff41;
+  border-top: 1px solid #3e3f4b;
 }
 
 .bottom-item p,
@@ -113,5 +92,4 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  font-family: 'Courier New', monospace;
 }

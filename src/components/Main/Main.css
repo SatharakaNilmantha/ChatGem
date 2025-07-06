@@ -4,9 +4,8 @@
   height: 100vh;
   padding-bottom: 15vh;
   position: relative;
-  background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
-  font-family: 'Courier New', 'Roboto Mono', monospace;
-  color: #00ff41;
+  background-color: #ffffff;
+  font-family: 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', sans-serif;
 }
 
 .main .nav {
@@ -15,13 +14,12 @@
   justify-content: space-between;
   font-size: 20px;
   padding: 10px 20px;
-  color: #00ff41;
-  background: linear-gradient(90deg, #0f0f23 0%, #1a1a2e 100%);
-  box-shadow: 0 2px 10px rgba(0, 255, 65, 0.2);
+  color: rgb(4, 11, 53);
+  background-color: white;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
   position: sticky;
   top: 0;
   z-index: 10;
-  border-bottom: 1px solid #00ff41;
 }
 
 .main .nav img {
@@ -30,8 +28,6 @@
   object-fit: cover;
   border-radius: 50%;
   display: block;
-  border: 2px solid #00ff41;
-  box-shadow: 0 0 10px rgba(0, 255, 65, 0.5);
 }
 
 .main-container {
@@ -44,22 +40,15 @@
 .main .greet {
   margin: 40px 0;
   font-size: 56px;
-  color: #333333;
+  color: rgb(218, 217, 217);
   font-weight: 500;
   padding: 20px;
-  text-shadow: 0 0 10px rgba(0, 255, 65, 0.3);
 }
 
 .main .greet span {
-  background: linear-gradient(45deg, #00ff41, #00d4ff, #ff0080);
+  background: -webkit-linear-gradient(16deg, #4b90ff, #ff5546);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  animation: glow 2s ease-in-out infinite alternate;
-}
-
-@keyframes glow {
-  from { filter: drop-shadow(0 0 5px rgba(0, 255, 65, 0.5)); }
-  to { filter: drop-shadow(0 0 20px rgba(0, 255, 65, 0.8)); }
 }
 
 /* Prompt Cards */
@@ -73,19 +62,17 @@
 .main .card {
   height: 200px;
   padding: 15px;
-  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  background-color: rgb(233, 233, 233);
   border-radius: 10px;
   position: relative;
   cursor: pointer;
   transition: all 0.3s ease;
-  border: 1px solid #00ff41;
-  box-shadow: 0 0 15px rgba(0, 255, 65, 0.1);
+  border: 1px solid rgba(0,0,0,0.05);
 }
 
 .main .card p {
-  color: #00ff41;
+  color: #585858;
   font-size: 17px;
-  font-family: 'Courier New', monospace;
 }
 
 .main .card-icon {
@@ -94,19 +81,18 @@
   top: 70px;
   right: -130px;
   width: 38px;
-  background: linear-gradient(135deg, #00ff41, #00d4ff);
+  background-color: white;
   text-align: center;
   padding-top: 8px;
   border-radius: 50px;
-  color: #0a0a0a;
-  box-shadow: 0 0 20px rgba(0, 255, 65, 0.5);
+  color: #3d3d3d;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
 .main .card:hover {
-  background: linear-gradient(135deg, #16213e 0%, #1a1a2e 100%);
+  background-color: #e9ecee;
   transform: translateY(-2px);
-  box-shadow: 0 0 25px rgba(0, 255, 65, 0.3);
-  border-color: #00d4ff;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
 
 /* Input Area */
@@ -116,7 +102,7 @@
   max-width: 900px;
   padding: 0px 20px;
   bottom: 0;
-  background: linear-gradient(to top, rgba(10,10,10,1) 60%, rgba(10,10,10,0) 100%);
+  background: linear-gradient(to top, rgba(255,255,255,1) 60%, rgba(255,255,255,0) 100%);
   padding-top: 20px;
   padding-bottom: 20px;
 }
@@ -126,30 +112,27 @@
   align-items: center;
   justify-content: space-between;
   gap: 20px;
-  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  background-color: #f0f4f9;
   padding: 10px 20px;
   border-radius: 50px;
-  box-shadow: 0 0 20px rgba(0, 255, 65, 0.2);
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
   transition: all 0.3s ease;
-  border: 1px solid #00ff41;
 }
 
 .search-box:hover {
-  box-shadow: 0 0 30px rgba(0, 255, 65, 0.4);
-  border-color: #00d4ff;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
 }
 
 .search-box span {
   padding: 8px;
   font-size: 18px;
-  color: #00ff41;
+  color: #5f6368;
   cursor: pointer;
   transition: color 0.2s ease;
 }
 
 .search-box span:hover {
-  color: #00d4ff;
-  text-shadow: 0 0 10px rgba(0, 212, 255, 0.5);
+  color: #4b90ff;
 }
 
 .search-box button {
@@ -157,15 +140,13 @@
   font-size: 18px;
   border: none;
   cursor: pointer;
-  color: #00ff41;
+  color: #4b90ff;
   background: transparent;
   transition: transform 0.2s ease;
 }
 
 .search-box button:hover {
   transform: scale(1.1);
-  color: #00d4ff;
-  text-shadow: 0 0 10px rgba(0, 212, 255, 0.5);
 }
 
 .search-box input {
@@ -175,12 +156,7 @@
   outline: none;
   padding: 8px;
   font-size: 18px;
-  color: #00ff41;
-  font-family: 'Courier New', monospace;
-}
-
-.search-box input::placeholder {
-  color: #666666;
+  color: #333;
 }
 
 .search-box div {
@@ -194,8 +170,7 @@
   margin: 15px auto;
   text-align: center;
   font-weight: 300;
-  color: #666666;
-  font-family: 'Courier New', monospace;
+  color: #5f6368;
 }
 
 /* Chat Area */
@@ -253,51 +228,46 @@
   height: 40px;
   object-fit: cover;
   border-radius: 50%;
-  border: 2px solid #00ff41;
-  box-shadow: 0 0 10px rgba(0, 255, 65, 0.5);
 }
 
 .chat-bubble .ai-icon {
   font-size: 24px;
-  color: #0a0a0a;
-  background: linear-gradient(135deg, #00ff41, #00d4ff);
+  color: #4b90ff;
+  background: #f0f4f9;
   padding: 10px 12px;
   border-radius: 50%;
   margin-right: 10px;
   flex-shrink: 0;
-  box-shadow: 0 0 15px rgba(0, 255, 65, 0.5);
 }
 
 .bubble-content {
-  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  background-color: #f0f4f9;
   border-radius: 18px;
   padding: 12px 16px;
   font-size: 15px;
-  color: #00ff41;
+  color: #222;
   line-height: 1.5;
   white-space: pre-wrap;
   max-width: 80%;
-  box-shadow: 0 0 15px rgba(0, 255, 65, 0.1);
+  box-shadow: 0 1px 2px rgba(0,0,0,0.1);
   word-break: break-word;
-  border: 1px solid rgba(0, 255, 65, 0.3);
-  font-family: 'Courier New', monospace;
 }
 
 .chat-bubble.user .bubble-content {
-  background: linear-gradient(135deg, #16213e 0%, #1a1a2e 100%);
-  color: #00d4ff;
-  border-color: rgba(0, 212, 255, 0.3);
+  background-color: #dbe9ff;
+  color: #0a0a0a;
 }
+
 
 .message-timestamp {
   font-size: 11px;
-  color: #666666;
+  color: #777;
   align-self: flex-end;
   margin: 0 8px;
   white-space: nowrap;
   padding-top: 4px;
-  font-family: 'Courier New', monospace;
 }
+
 
 .typing-indicator {
   display: flex;
@@ -309,11 +279,10 @@
   display: inline-block;
   width: 10px;
   height: 8px;
-  background-color: #00ff41;
+  background-color: #888;
   border-radius: 50%;
   margin-right: 4px;
   animation: blink 1.4s infinite both;
-  box-shadow: 0 0 5px rgba(0, 255, 65, 0.5);
 }
 
 .typing-indicator span:nth-child(2) {
@@ -330,9 +299,9 @@
 .markdown h3 {
   margin: 2px 0 4px;
   font-weight: 600;
-  color: #00d4ff;
-  text-shadow: 0 0 5px rgba(0, 212, 255, 0.3);
 }
+
+
 
 .markdown ul {
   padding-left: 20px;
@@ -352,43 +321,36 @@
 
 .markdown strong {
   font-weight: 600;
-  color: #00d4ff;
-  text-shadow: 0 0 3px rgba(0, 212, 255, 0.3);
+  color: inherit;
 }
 
 .markdown em {
   font-style: italic;
-  color: #00ff41;
 }
 
 .markdown code {
-  background: linear-gradient(135deg, #0f0f23, #1a1a2e);
+  background-color: #eaeaea;
   padding: 2px 4px;
   border-radius: 4px;
-  font-family: 'Courier New', monospace;
+  font-family: monospace;
   font-size: 14px;
-  color: #00ff41;
-  border: 1px solid rgba(0, 255, 65, 0.3);
 }
 
 .markdown pre {
-  background: linear-gradient(135deg, #0f0f23, #1a1a2e);
+  background-color: #f4f4f4;
   padding: 8px;
   border-radius: 6px;
   overflow-x: auto;
   margin: 2px 0;
-  font-family: 'Courier New', monospace;
+  font-family: monospace;
   font-size: 14px;
-  color: #00ff41;
-  border: 1px solid rgba(0, 255, 65, 0.3);
 }
 
 .markdown blockquote {
-  border-left: 3px solid #00ff41;
+  border-left: 3px solid #ddd;
   padding-left: 12px;
   margin: 8px 0;
-  color: #00d4ff;
-  background: rgba(0, 255, 65, 0.05);
+  color: #666;
 }
 
 /* Question Form Styling */
@@ -404,17 +366,15 @@
   display: block;
   margin-bottom: 6px;
   font-weight: 600;
-  color: #00d4ff;
-  text-shadow: 0 0 3px rgba(0, 212, 255, 0.3);
+  color: #333;
 }
 
 .question-example {
   font-size: 13px;
-  color: #666666;
+  color: #666;
   font-style: italic;
   margin-top: 4px;
   display: block;
-  font-family: 'Courier New', monospace;
 }
 
 /* Animations */
