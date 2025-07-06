@@ -110,7 +110,7 @@ function Main({ messages: propMessages = [], onMessagesUpdate }) {
     return (
       <div className='main'>
         <div className='nav'>
-          <p>💎 ChatGem</p>
+          <p>ChatGem</p>
           <img src={user} alt="User Avatar" />
         </div>
         <div className='main-container'>
@@ -120,21 +120,21 @@ function Main({ messages: propMessages = [], onMessagesUpdate }) {
           </div>
           <div style={{ 
             padding: '25px', 
-            background: 'linear-gradient(135deg, #fef2f2 0%, #ffffff 100%)', 
+            background: 'linear-gradient(135deg, #f0f7ff 0%, #ffffff 100%)', 
             borderRadius: '16px', 
             margin: '20px',
             lineHeight: '1.6',
-            border: '1px solid rgba(220, 38, 38, 0.2)',
-            boxShadow: '0 4px 20px rgba(220, 38, 38, 0.1)'
+            border: '1px solid rgba(59, 130, 246, 0.2)',
+            boxShadow: '0 4px 20px rgba(59, 130, 246, 0.1)'
           }}>
-            <h3 style={{ marginBottom: '20px', color: '#b91c1c', fontSize: '20px', fontWeight: '600' }}>🔧 Setup Instructions:</h3>
+            <h3 style={{ marginBottom: '20px', color: '#1e40af', fontSize: '20px', fontWeight: '600' }}>🔧 Setup Instructions:</h3>
             <ol style={{ paddingLeft: '20px', color: '#475569', fontSize: '15px' }}>
-              <li style={{ marginBottom: '10px' }}>Copy <code style={{ background: 'rgba(220, 38, 38, 0.1)', padding: '2px 6px', borderRadius: '4px', color: '#b91c1c' }}>.env.example</code> to <code style={{ background: 'rgba(220, 38, 38, 0.1)', padding: '2px 6px', borderRadius: '4px', color: '#b91c1c' }}>.env</code></li>
-              <li style={{ marginBottom: '10px' }}>Get your API key from <a href="https://makersuite.google.com/app/apikey" target="_blank" rel="noopener noreferrer" style={{ color: '#dc2626', textDecoration: 'none', fontWeight: '500' }}>Google AI Studio</a></li>
-              <li style={{ marginBottom: '10px' }}>Add your API key to the <code style={{ background: 'rgba(220, 38, 38, 0.1)', padding: '2px 6px', borderRadius: '4px', color: '#b91c1c' }}>.env</code> file</li>
+              <li style={{ marginBottom: '10px' }}>Copy <code style={{ background: 'rgba(59, 130, 246, 0.1)', padding: '2px 6px', borderRadius: '4px', color: '#1d4ed8' }}>.env.example</code> to <code style={{ background: 'rgba(59, 130, 246, 0.1)', padding: '2px 6px', borderRadius: '4px', color: '#1d4ed8' }}>.env</code></li>
+              <li style={{ marginBottom: '10px' }}>Get your API key from <a href="https://makersuite.google.com/app/apikey" target="_blank" rel="noopener noreferrer" style={{ color: '#3b82f6', textDecoration: 'none', fontWeight: '500' }}>Google AI Studio</a></li>
+              <li style={{ marginBottom: '10px' }}>Add your API key to the <code style={{ background: 'rgba(59, 130, 246, 0.1)', padding: '2px 6px', borderRadius: '4px', color: '#1d4ed8' }}>.env</code> file</li>
               <li style={{ marginBottom: '10px' }}>Restart the development server</li>
             </ol>
-            <p style={{ marginTop: '20px', fontSize: '14px', color: '#64748b', padding: '12px', background: 'rgba(220, 38, 38, 0.05)', borderRadius: '8px', border: '1px solid rgba(220, 38, 38, 0.1)' }}>
+            <p style={{ marginTop: '20px', fontSize: '14px', color: '#64748b', padding: '12px', background: 'rgba(59, 130, 246, 0.05)', borderRadius: '8px', border: '1px solid rgba(59, 130, 246, 0.1)' }}>
               💡 Check the console for detailed error messages
             </p>
           </div>
@@ -146,7 +146,7 @@ function Main({ messages: propMessages = [], onMessagesUpdate }) {
   return (
     <div className='main'>
       <div className='nav'>
-        <p>💎 ChatGem</p>
+        <p>ChatGem</p>
         <img src={user} alt="User Avatar" />
       </div>
 
