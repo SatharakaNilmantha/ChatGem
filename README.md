@@ -1,7 +1,5 @@
 <div align="center">
-  <img src="src/Images/Human Tech (1).png" alt="ChatGem AI" width="120" height="120">
-  
-  # ChatGem
+  <img src="src/Images/Human Tech (1).png" alt="ChatGem AI" width="200" height="200">
   
   **A modern AI chat assistant powered by Google's Gemini AI**
   
