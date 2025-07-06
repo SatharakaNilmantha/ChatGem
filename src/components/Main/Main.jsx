@@ -6,8 +6,8 @@ import { GiCompass } from "react-icons/gi";
 import { FaRegMessage, FaCode } from "react-icons/fa6";
 import { HiOutlineMicrophone } from "react-icons/hi2";
 import { BiImageAdd } from "react-icons/bi";
-import { LuSend } from "react-icons/lu";
-import { RiGeminiFill } from "react-icons/ri";
+import { IoSend } from "react-icons/io5";
+import { HiSparkles } from "react-icons/hi2";
 import { GEMINI_API_KEY, GEMINI_API_URL } from '../config/gemini.js';
 import ReactMarkdown from 'react-markdown';
 
@@ -188,7 +188,7 @@ function Main({ messages: propMessages = [], onMessagesUpdate }) {
                   <div className="avatar">
                     {message.sender === 'user'
                       ? <img src={user} alt="User" />
-                      : <span className="ai-icon"><RiGeminiFill /></span>
+                      : <span className="ai-icon"><HiSparkles /></span>
                     }
                   </div>
                   <div className="bubble-content">
@@ -211,7 +211,7 @@ function Main({ messages: propMessages = [], onMessagesUpdate }) {
 
               {loading && (
                 <div className='chat-bubble ai'>
-                  <div className="avatar"><span className="ai-icon"><RiGeminiFill /></span></div>
+                  <div className="avatar"><span className="ai-icon"><HiSparkles /></span></div>
                   <div className="bubble-content typing-indicator">
                     <span></span><span></span><span></span>
                   </div>
@@ -233,7 +233,7 @@ function Main({ messages: propMessages = [], onMessagesUpdate }) {
             <div>
               <span><BiImageAdd /></span>
               <span><HiOutlineMicrophone /></span>
-              <button type="submit"><LuSend /></button>
+              <button type="submit"><IoSend /></button>
             </div>
           </form>
           <p className='bottom-info'>
