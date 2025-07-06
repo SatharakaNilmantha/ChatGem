@@ -110,7 +110,10 @@ function Main({ messages: propMessages = [], onMessagesUpdate }) {
     return (
       <div className='main'>
         <div className='nav'>
-          <p>ChatGem</p>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+            <img src="/chatgem-icon.svg" alt="ChatGem" style={{ width: '32px', height: '32px' }} />
+            <p>ChatGem</p>
+          </div>
           <img src={user} alt="User Avatar" />
         </div>
         <div className='main-container'>
@@ -146,7 +149,10 @@ function Main({ messages: propMessages = [], onMessagesUpdate }) {
   return (
     <div className='main'>
       <div className='nav'>
-        <p>ChatGem</p>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+          <img src="/chatgem-icon.svg" alt="ChatGem" style={{ width: '32px', height: '32px' }} />
+          <p>ChatGem</p>
+        </div>
         <img src={user} alt="User Avatar" />
       </div>
 
