@@ -1,6 +1,26 @@
-# ChatGem
+<div align="center">
+  <img src="src/Images/Human Tech (1).png" alt="ChatGem AI" width="120" height="120">
+  
+  # ChatGem
+  
+  **A modern AI chat assistant powered by Google's Gemini AI**
+  
+  [![React](https://img.shields.io/badge/React-19.1.0-61DAFB?style=flat-square&logo=react)](https://reactjs.org/)
+  [![Vite](https://img.shields.io/badge/Vite-7.0.0-646CFF?style=flat-square&logo=vite)](https://vitejs.dev/)
+  [![Google Gemini](https://img.shields.io/badge/Google-Gemini%20AI-4285F4?style=flat-square&logo=google)](https://ai.google.dev/)
+  
+  ---
+</div>
 
-A modern chat application powered by Google's Gemini AI.
+## ✨ Features
+
+- 🤖 **Real-time chat** with Google Gemini AI
+- 💬 **Chat history management** with persistent conversations
+- 📱 **Responsive design** that works on all devices
+- 🎨 **Modern UI** with smooth animations and blue/white theme
+- 📝 **Markdown support** for rich AI responses
+- 🔧 **Proper error handling** and user guidance
+- 🚀 **Fast performance** with Vite build system
 
 ## 🚀 Quick Start
 
@@ -16,7 +36,7 @@ npm install
 ```
 
 ### 3. Set up environment variables
-**IMPORTANT:** The app won't work without this step!
+**⚠️ IMPORTANT:** The app won't work without this step!
 
 Copy the example environment file:
 ```bash
@@ -41,6 +61,13 @@ VITE_GEMINI_API_URL=https://generativelanguage.googleapis.com/v1beta/models/gemi
 npm run dev
 ```
 
+## 📸 Screenshots
+
+<div align="center">
+  <img src="src/Images/Human Tech (1).png" alt="ChatGem Interface" width="80">
+  <p><em>Clean, modern interface with AI-powered conversations</em></p>
+</div>
+
 ## ⚠️ Important Notes
 
 - **The app will NOT work without the API key setup**
@@ -51,14 +78,14 @@ npm run dev
 ## 🔧 Troubleshooting
 
 ### "Setup Required" page appears
-- Make sure you created the `.env` file
-- Check that your API key is correctly added to `.env`
-- Restart the development server with `npm run dev`
+- ✅ Make sure you created the `.env` file
+- ✅ Check that your API key is correctly added to `.env`
+- ✅ Restart the development server with `npm run dev`
 
 ### API errors
-- Verify your API key is valid at [Google AI Studio](https://makersuite.google.com/app/apikey)
-- Check the browser console for detailed error messages
-- Make sure you have internet connection
+- ✅ Verify your API key is valid at [Google AI Studio](https://makersuite.google.com/app/apikey)
+- ✅ Check the browser console for detailed error messages
+- ✅ Make sure you have internet connection
 
 ## 🚀 Deployment
 
@@ -70,43 +97,68 @@ npm run dev
 
 ### Other Platforms
 Set the environment variable in your hosting platform:
-- **Netlify:** Site settings → Environment variables
-- **Vercel:** Project settings → Environment Variables
-- **Railway:** Variables tab
+
+| Platform | Location |
+|----------|----------|
+| **Netlify** | Site settings → Environment variables |
+| **Vercel** | Project settings → Environment Variables |
+| **Railway** | Variables tab |
 
 Add this variable:
-- Name: `VITE_GEMINI_API_KEY`
-- Value: Your Gemini API key
-
-## ✨ Features
-
-- Real-time chat with Google Gemini AI
-- Chat history management
-- Responsive design
-- Markdown support for AI responses
-- Modern UI with smooth animations
-- Proper error handling and user guidance
+- **Name:** `VITE_GEMINI_API_KEY`
+- **Value:** Your Gemini API key
 
 ## 🛠️ Technologies Used
 
-- React 19
-- Vite
-- Google Gemini AI API
-- React Icons
-- React Markdown
+- **Frontend:** React 19 with modern hooks
+- **Build Tool:** Vite for fast development and building
+- **AI Engine:** Google Gemini AI API
+- **Styling:** Pure CSS with modern gradients and animations
+- **Icons:** React Icons library
+- **Markdown:** React Markdown for rich text rendering
 
 ## 📝 Environment Variables
 
-- `VITE_GEMINI_API_KEY`: Your Google Gemini API key (required)
-- `VITE_GEMINI_API_URL`: The Gemini API endpoint URL (optional)
+| Variable | Description | Required |
+|----------|-------------|----------|
+| `VITE_GEMINI_API_KEY` | Your Google Gemini API key | ✅ Yes |
+| `VITE_GEMINI_API_URL` | The Gemini API endpoint URL | ❌ Optional |
+
+## 🎨 Design Features
+
+- **Modern Blue & White Theme** - Clean, professional appearance
+- **Custom AI Avatar** - Unique branding with custom AI head icon
+- **Smooth Animations** - Engaging micro-interactions
+- **Responsive Layout** - Works perfectly on mobile and desktop
+- **Chat Bubbles** - Intuitive conversation interface
+- **Typing Indicators** - Real-time feedback during AI responses
 
 ## 🤝 Contributing
 
 1. Fork the repository
-2. Create your feature branch
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
 3. Make sure to test with your own API key
-4. Submit a pull request
+4. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+5. Push to the branch (`git push origin feature/AmazingFeature`)
+6. Open a Pull Request
+
+## 📄 License
+
+This project is open source and available under the [MIT License](LICENSE).
+
+## 🆘 Support
+
+**Need help?** 
+- Check the browser console for detailed error messages
+- Open an issue on [GitHub](https://github.com/SatharakaNilmantha/ChatGem/issues)
+- Make sure your API key is properly configured
 
 ---
 
-**Need help?** Check the browser console for detailed error messages or open an issue on GitHub.
+<div align="center">
+  <img src="src/Images/Human Tech (1).png" alt="ChatGem AI" width="60">
+  
+  **Made with ❤️ by [SatharakaNilmantha](https://github.com/SatharakaNilmantha)**
+  
+  ⭐ Star this repo if you found it helpful!
+</div>
