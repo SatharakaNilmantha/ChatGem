@@ -1,38 +1,22 @@
-<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+<svg width="64" height="64" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <!-- Gradients for 3D effect -->
-    <linearGradient id="gemTop" x1="0%" y1="0%" x2="100%" y2="100%">
+    <linearGradient id="gemGradient" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" style="stop-color:#60a5fa;stop-opacity:1" />
       <stop offset="50%" style="stop-color:#3b82f6;stop-opacity:1" />
       <stop offset="100%" style="stop-color:#1d4ed8;stop-opacity:1" />
     </linearGradient>
-    
-    <linearGradient id="gemLeft" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#1e40af;stop-opacity:1" />
+    <linearGradient id="topFacet" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#93c5fd;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#60a5fa;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="leftFacet" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#3b82f6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1e40af;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="rightFacet" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#2563eb;stop-opacity:1" />
       <stop offset="100%" style="stop-color:#1d4ed8;stop-opacity:1" />
     </linearGradient>
-    
-    <linearGradient id="gemRight" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#2563eb;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#1e40af;stop-opacity:1" />
-    </linearGradient>
-    
-    <linearGradient id="gemBottom" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#1e3a8a;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#1e40af;stop-opacity:1" />
-    </linearGradient>
-    
-    <!-- Shine effect -->
-    <linearGradient id="shine" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#ffffff;stop-opacity:0.8" />
-      <stop offset="50%" style="stop-color:#ffffff;stop-opacity:0.3" />
-      <stop offset="100%" style="stop-color:#ffffff;stop-opacity:0" />
-    </linearGradient>
-    
-    <!-- Shadow -->
-    <ellipse id="shadow" cx="32" cy="58" rx="20" ry="4" fill="rgba(30, 64, 175, 0.2)"/>
-    
-    <!-- Filters for glow -->
     <filter id="glow">
       <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
       <feMerge> 
@@ -42,46 +26,33 @@
     </filter>
   </defs>
   
-  <!-- Shadow -->
-  <use href="#shadow"/>
+  <!-- Gem Shadow -->
+  <ellipse cx="32" cy="56" rx="18" ry="4" fill="#1e40af" opacity="0.2"/>
   
-  <!-- Main gem structure -->
-  <g filter="url(#glow)">
-    <!-- Bottom facets -->
-    <path d="M32 52 L20 32 L32 28 L44 32 Z" fill="url(#gemBottom)"/>
-    <path d="M32 52 L44 32 L50 28 L40 48 Z" fill="url(#gemRight)" opacity="0.8"/>
-    <path d="M32 52 L20 32 L14 28 L24 48 Z" fill="url(#gemLeft)" opacity="0.8"/>
-    
-    <!-- Middle section -->
-    <path d="M14 28 L20 32 L32 28 L26 24 Z" fill="url(#gemLeft)"/>
-    <path d="M50 28 L44 32 L32 28 L38 24 Z" fill="url(#gemRight)"/>
-    
-    <!-- Top facets -->
-    <path d="M32 12 L26 24 L32 28 L38 24 Z" fill="url(#gemTop)"/>
-    <path d="M26 24 L20 20 L14 28 L20 32 Z" fill="url(#gemLeft)" opacity="0.9"/>
-    <path d="M38 24 L44 20 L50 28 L44 32 Z" fill="url(#gemRight)" opacity="0.9"/>
-    
-    <!-- Top crown -->
-    <path d="M32 12 L26 24 L20 20 L28 16 Z" fill="url(#gemTop)" opacity="0.9"/>
-    <path d="M32 12 L38 24 L44 20 L36 16 Z" fill="url(#gemTop)" opacity="0.9"/>
-    <path d="M28 16 L20 20 L24 14 L30 14 Z" fill="url(#gemTop)" opacity="0.8"/>
-    <path d="M36 16 L44 20 L40 14 L34 14 Z" fill="url(#gemTop)" opacity="0.8"/>
-    <path d="M30 14 L24 14 L32 8 Z" fill="url(#gemTop)"/>
-    <path d="M34 14 L40 14 L32 8 Z" fill="url(#gemTop)"/>
-    
-    <!-- Shine highlights -->
-    <path d="M32 12 L30 18 L34 18 Z" fill="url(#shine)" opacity="0.6"/>
-    <path d="M28 16 L26 22 L30 20 Z" fill="url(#shine)" opacity="0.4"/>
-    <path d="M36 16 L38 22 L34 20 Z" fill="url(#shine)" opacity="0.4"/>
-    
-    <!-- Central sparkle -->
-    <circle cx="32" cy="20" r="1.5" fill="#ffffff" opacity="0.9"/>
-    <path d="M32 17 L33 20 L32 23 L31 20 Z" fill="#ffffff" opacity="0.7"/>
-    <path d="M29 20 L32 19 L35 20 L32 21 Z" fill="#ffffff" opacity="0.7"/>
-  </g>
+  <!-- Main Gem Body -->
+  <polygon points="32,8 48,24 32,52 16,24" fill="url(#gemGradient)" stroke="#1e40af" stroke-width="1"/>
   
-  <!-- Chat bubble accent -->
-  <circle cx="48" cy="16" r="6" fill="url(#gemTop)" opacity="0.9"/>
-  <circle cx="48" cy="16" r="4" fill="#ffffff" opacity="0.3"/>
-  <circle cx="47" cy="15" r="1" fill="#ffffff" opacity="0.8"/>
+  <!-- Top Facet -->
+  <polygon points="32,8 48,24 32,20 16,24" fill="url(#topFacet)" stroke="#60a5fa" stroke-width="0.5"/>
+  
+  <!-- Left Facet -->
+  <polygon points="16,24 32,20 32,52" fill="url(#leftFacet)" stroke="#1e40af" stroke-width="0.5"/>
+  
+  <!-- Right Facet -->
+  <polygon points="48,24 32,20 32,52" fill="url(#rightFacet)" stroke="#1d4ed8" stroke-width="0.5"/>
+  
+  <!-- Highlight -->
+  <polygon points="28,12 36,12 32,20" fill="#ffffff" opacity="0.6"/>
+  <polygon points="20,26 28,26 32,20" fill="#ffffff" opacity="0.3"/>
+  
+  <!-- Sparkles -->
+  <circle cx="24" cy="16" r="1.5" fill="#ffffff" opacity="0.8" filter="url(#glow)"/>
+  <circle cx="40" cy="18" r="1" fill="#ffffff" opacity="0.9" filter="url(#glow)"/>
+  <circle cx="36" cy="32" r="1" fill="#ffffff" opacity="0.7" filter="url(#glow)"/>
+  
+  <!-- Chat Bubble Accent -->
+  <circle cx="48" cy="12" r="6" fill="#3b82f6" stroke="#ffffff" stroke-width="1"/>
+  <circle cx="46" cy="10" r="1" fill="#ffffff"/>
+  <circle cx="48" cy="12" r="1" fill="#ffffff"/>
+  <circle cx="50" cy="14" r="1" fill="#ffffff"/>
 </svg>
