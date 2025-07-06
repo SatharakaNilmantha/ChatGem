@@ -62,7 +62,7 @@ npm run dev
 ## 📸 Screenshots
 
 <div align="center">
-  <img src="src/Images/Human Tech (1).png" alt="ChatGem Interface" width="80">
+  <img src="https://github.com/user-attachments/assets/5f186c7a-3d8a-4d13-8ab6-cfe69bbe1ac7" alt="ChatGem Interface" width="100%">
   <p><em>Clean, modern interface with AI-powered conversations</em></p>
 </div>
 
