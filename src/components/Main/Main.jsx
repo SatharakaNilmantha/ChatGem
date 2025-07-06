@@ -8,7 +8,6 @@ import { FaRegMessage, FaCode } from "react-icons/fa6";
 import { HiOutlineMicrophone } from "react-icons/hi2";
 import { BiImageAdd } from "react-icons/bi";
 import { IoSend } from "react-icons/io5";
-import { HiSparkles } from "react-icons/hi2";
 import { GEMINI_API_KEY, GEMINI_API_URL } from '../config/gemini.js';
 import ReactMarkdown from 'react-markdown';
 
@@ -35,11 +34,6 @@ function Main({ messages: propMessages = [], onMessagesUpdate }) {
     e.preventDefault();
     if (!input.trim()) return;
 
-    // Check if API key is available
-    if (!GEMINI_API_KEY) {
-      alert('❌ API key not found!\n\nTo fix this:\n1. Copy .env.example to .env\n2. Add your Gemini API key\n3. Restart the server\n\nGet your API key from: https://makersuite.google.com/app/apikey');
-      return;
-    }
 
     const userMessage = {
       text: input.replace(/\n/g, "<br/>"),
@@ -106,46 +100,6 @@ function Main({ messages: propMessages = [], onMessagesUpdate }) {
     await handleSubmit(event);
   };
 
-  // Show setup message if API key is missing
-  if (!GEMINI_API_KEY) {
-    return (
-      <div className='main'>
-        <div className='nav'>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-            <img src={aiIcon} alt="ChatGem AI" style={{ width: '40px', height: '40px', objectFit: 'contain' }} />
-            <p>ChatGem</p>
-          </div>
-          <img src={user} alt="User Avatar" />
-        </div>
-        <div className='main-container'>
-          <div className='greet'>
-            <p><span>Setup Required</span></p>
-            <p>Please configure your API key to get started</p>
-          </div>
-          <div style={{ 
-            padding: '25px', 
-            background: 'linear-gradient(135deg, #f0f7ff 0%, #ffffff 100%)', 
-            borderRadius: '16px', 
-            margin: '20px',
-            lineHeight: '1.6',
-            border: '1px solid rgba(59, 130, 246, 0.2)',
-            boxShadow: '0 4px 20px rgba(59, 130, 246, 0.1)'
-          }}>
-            <h3 style={{ marginBottom: '20px', color: '#1e40af', fontSize: '20px', fontWeight: '600' }}>🔧 Setup Instructions:</h3>
-            <ol style={{ paddingLeft: '20px', color: '#475569', fontSize: '15px' }}>
-              <li style={{ marginBottom: '10px' }}>Copy <code style={{ background: 'rgba(59, 130, 246, 0.1)', padding: '2px 6px', borderRadius: '4px', color: '#1d4ed8' }}>.env.example</code> to <code style={{ background: 'rgba(59, 130, 246, 0.1)', padding: '2px 6px', borderRadius: '4px', color: '#1d4ed8' }}>.env</code></li>
-              <li style={{ marginBottom: '10px' }}>Get your API key from <a href="https://makersuite.google.com/app/apikey" target="_blank" rel="noopener noreferrer" style={{ color: '#3b82f6', textDecoration: 'none', fontWeight: '500' }}>Google AI Studio</a></li>
-              <li style={{ marginBottom: '10px' }}>Add your API key to the <code style={{ background: 'rgba(59, 130, 246, 0.1)', padding: '2px 6px', borderRadius: '4px', color: '#1d4ed8' }}>.env</code> file</li>
-              <li style={{ marginBottom: '10px' }}>Restart the development server</li>
-            </ol>
-            <p style={{ marginTop: '20px', fontSize: '14px', color: '#64748b', padding: '12px', background: 'rgba(59, 130, 246, 0.05)', borderRadius: '8px', border: '1px solid rgba(59, 130, 246, 0.1)' }}>
-              💡 Check the console for detailed error messages
-            </p>
-          </div>
-        </div>
-      </div>
-    );
-  }
 
   return (
     <div className='main'>
